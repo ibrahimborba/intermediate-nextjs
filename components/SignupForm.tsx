@@ -1,10 +1,10 @@
 'use client'
 
-import { useFormState } from 'react-dom'
-import { Input, Button } from '@nextui-org/react'
 import { registerUser } from '@/actions/auth'
+import { Input } from '@nextui-org/react'
 import Link from 'next/link'
-import Submit from './Submit'
+import { useFormState } from 'react-dom'
+import SubmitButton from './SubmitButton'
 
 const initState = { message: null }
 
@@ -13,7 +13,6 @@ const SignupForm = () => {
     registerUser,
     initState
   )
-
   return (
     <form
       action={action}
@@ -29,11 +28,10 @@ const SignupForm = () => {
         placeholder="Password"
         required
       />
-      <Submit label={'signup'} />
+      <SubmitButton label={'Sign up'} />
       <div>
         <Link href="/signin">{`Already have an account?`}</Link>
       </div>
-      {formState?.message && <p>{formState.message}</p>}
     </form>
   )
 }

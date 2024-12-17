@@ -1,10 +1,9 @@
 'use client'
-
-import { useFormState } from 'react-dom'
-import { Input, Button } from '@nextui-org/react'
-import { signinUser } from '@/actions/auth'
+import { Input } from '@nextui-org/react'
 import Link from 'next/link'
-import Submit from './Submit'
+import SubmitButton from './SubmitButton'
+import { useFormState } from 'react-dom'
+import { signinUser } from '@/actions/auth'
 
 const initState = { message: null }
 
@@ -13,7 +12,6 @@ const SigninForm = () => {
     signinUser,
     initState
   )
-
   return (
     <form
       action={action}
@@ -36,7 +34,7 @@ const SigninForm = () => {
         type="password"
         placeholder="Password"
       />
-      <Submit label={'signin'} />
+      <SubmitButton label={'Sign in'} />
       <div>
         <Link href="/signup">{`Don't have an account?`}</Link>
       </div>
